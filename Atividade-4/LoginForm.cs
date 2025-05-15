@@ -16,5 +16,17 @@ namespace Atividade_4
         {
             InitializeComponent();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cadastrar cadastrar = new Cadastrar();
+            cadastrar.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.Show();
+        }
     }
 }
