@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            txt_usuario_formLogin = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            txt_Senha_formLogin = new TextBox();
+            btn_entrar_formLogin = new Button();
             SuspendLayout();
             // 
             // label1
@@ -45,12 +45,12 @@
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
-            // textBox1
+            // txt_usuario_formLogin
             // 
-            textBox1.Location = new Point(310, 111);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(147, 27);
-            textBox1.TabIndex = 2;
+            txt_usuario_formLogin.Location = new Point(310, 111);
+            txt_usuario_formLogin.Name = "txt_usuario_formLogin";
+            txt_usuario_formLogin.Size = new Size(147, 27);
+            txt_usuario_formLogin.TabIndex = 2;
             // 
             // label2
             // 
@@ -70,33 +70,33 @@
             label3.TabIndex = 4;
             label3.Text = "Senha:";
             // 
-            // textBox2
+            // txt_Senha_formLogin
             // 
-            textBox2.Location = new Point(310, 155);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(147, 27);
-            textBox2.TabIndex = 5;
+            txt_Senha_formLogin.Location = new Point(310, 155);
+            txt_Senha_formLogin.Name = "txt_Senha_formLogin";
+            txt_Senha_formLogin.Size = new Size(147, 27);
+            txt_Senha_formLogin.TabIndex = 5;
             // 
-            // button1
+            // btn_entrar_formLogin
             // 
-            button1.Location = new Point(320, 198);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 38);
-            button1.TabIndex = 6;
-            button1.Text = "Entrar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_entrar_formLogin.Location = new Point(320, 198);
+            btn_entrar_formLogin.Name = "btn_entrar_formLogin";
+            btn_entrar_formLogin.Size = new Size(121, 38);
+            btn_entrar_formLogin.TabIndex = 6;
+            btn_entrar_formLogin.Text = "Entrar";
+            btn_entrar_formLogin.UseVisualStyleBackColor = true;
+            btn_entrar_formLogin.Click += button1_Click;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
+            Controls.Add(btn_entrar_formLogin);
+            Controls.Add(txt_Senha_formLogin);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txt_usuario_formLogin);
             Controls.Add(label1);
             Name = "LoginForm";
             Text = "LoginForm";
@@ -107,10 +107,10 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txt_usuario_formLogin;
         private Label label2;
         private Label label3;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox txt_Senha_formLogin;
+        private Button btn_entrar_formLogin;
     }
 }
