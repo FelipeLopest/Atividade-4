@@ -17,22 +17,18 @@ namespace Atividade_4
             InitializeComponent();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Cadastrar cadastrar = new Cadastrar();
-            cadastrar.Show();
-        }
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conn = Conexao.ObterConexao())
+            using (MySqlConnection conex = Conexao.ObterConexao())
             {
                 try
                 {
-                    conn.Open();
+                    conex.Open();
                     string sql = "SELECT COUNT(*) FROM usuario WHERE usuario = @usuario AND senha = @senha";
 
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    MySqlCommand cmd = new MySqlCommand(sql, conex);
                     cmd.Parameters.AddWithValue("@usuario", txt_usuario_formLogin.Text);
                     cmd.Parameters.AddWithValue("@senha", txt_Senha_formLogin.Text);
 
@@ -55,6 +51,11 @@ namespace Atividade_4
                     MessageBox.Show("Erro: " + ex.Message);
                 }
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

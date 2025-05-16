@@ -30,29 +30,29 @@
         {
             Cadastrar_paciente = new TabControl();
             tabPage1 = new TabPage();
-            textBox6 = new TextBox();
+            btn_cadastrar_form_cadastrar_paciente = new Button();
+            txt_email_form_cadastro_pacientes = new TextBox();
             label6 = new Label();
             label1 = new Label();
             label2 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtpNascimento_form_cadastro_paciente = new DateTimePicker();
             label3 = new Label();
-            textBox5 = new TextBox();
+            txt_endereco_form_cadastro_pacientes = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            txt_telefone_form_cadastro_pacientes = new TextBox();
             label5 = new Label();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            txt_rg_form_cadastro_pacientes = new TextBox();
+            txt_nome_form_cadastro_pacientes = new TextBox();
             tabPage2 = new TabPage();
+            button1 = new Button();
+            label11 = new Label();
+            textBox8 = new TextBox();
             textBox1 = new TextBox();
             label9 = new Label();
             dateTimePicker2 = new DateTimePicker();
             label8 = new Label();
             label7 = new Label();
             comboBox1 = new ComboBox();
-            label11 = new Label();
-            textBox8 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
             Cadastrar_paciente.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -70,19 +70,19 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(button2);
-            tabPage1.Controls.Add(textBox6);
+            tabPage1.Controls.Add(btn_cadastrar_form_cadastrar_paciente);
+            tabPage1.Controls.Add(txt_email_form_cadastro_pacientes);
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(label1);
             tabPage1.Controls.Add(label2);
-            tabPage1.Controls.Add(dateTimePicker1);
+            tabPage1.Controls.Add(dtpNascimento_form_cadastro_paciente);
             tabPage1.Controls.Add(label3);
-            tabPage1.Controls.Add(textBox5);
+            tabPage1.Controls.Add(txt_endereco_form_cadastro_pacientes);
             tabPage1.Controls.Add(label4);
-            tabPage1.Controls.Add(textBox4);
+            tabPage1.Controls.Add(txt_telefone_form_cadastro_pacientes);
             tabPage1.Controls.Add(label5);
-            tabPage1.Controls.Add(textBox3);
-            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(txt_rg_form_cadastro_pacientes);
+            tabPage1.Controls.Add(txt_nome_form_cadastro_pacientes);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -91,12 +91,22 @@
             tabPage1.Text = "Cadastrar Paciente";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // btn_cadastrar_form_cadastrar_paciente
             // 
-            textBox6.Location = new Point(488, 190);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(125, 27);
-            textBox6.TabIndex = 28;
+            btn_cadastrar_form_cadastrar_paciente.Location = new Point(315, 299);
+            btn_cadastrar_form_cadastrar_paciente.Name = "btn_cadastrar_form_cadastrar_paciente";
+            btn_cadastrar_form_cadastrar_paciente.Size = new Size(114, 42);
+            btn_cadastrar_form_cadastrar_paciente.TabIndex = 55;
+            btn_cadastrar_form_cadastrar_paciente.Text = "Cadastrar";
+            btn_cadastrar_form_cadastrar_paciente.UseVisualStyleBackColor = true;
+            btn_cadastrar_form_cadastrar_paciente.Click += btn_cadastrar_form_cadastrar_paciente_Click;
+            // 
+            // txt_email_form_cadastro_pacientes
+            // 
+            txt_email_form_cadastro_pacientes.Location = new Point(488, 190);
+            txt_email_form_cadastro_pacientes.Name = "txt_email_form_cadastro_pacientes";
+            txt_email_form_cadastro_pacientes.Size = new Size(125, 27);
+            txt_email_form_cadastro_pacientes.TabIndex = 28;
             // 
             // label6
             // 
@@ -125,14 +135,14 @@
             label2.TabIndex = 16;
             label2.Text = "nome:";
             // 
-            // dateTimePicker1
+            // dtpNascimento_form_cadastro_paciente
             // 
-            dateTimePicker1.Location = new Point(296, 249);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(331, 27);
-            dateTimePicker1.TabIndex = 25;
-            dateTimePicker1.Value = new DateTime(2025, 5, 15, 15, 51, 23, 0);
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            dtpNascimento_form_cadastro_paciente.Location = new Point(296, 249);
+            dtpNascimento_form_cadastro_paciente.Name = "dtpNascimento_form_cadastro_paciente";
+            dtpNascimento_form_cadastro_paciente.Size = new Size(331, 27);
+            dtpNascimento_form_cadastro_paciente.TabIndex = 25;
+            dtpNascimento_form_cadastro_paciente.Value = new DateTime(2025, 5, 15, 15, 51, 23, 0);
+            dtpNascimento_form_cadastro_paciente.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // label3
             // 
@@ -143,12 +153,12 @@
             label3.TabIndex = 17;
             label3.Text = "Data de Nascimento:";
             // 
-            // textBox5
+            // txt_endereco_form_cadastro_pacientes
             // 
-            textBox5.Location = new Point(502, 140);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 27);
-            textBox5.TabIndex = 24;
+            txt_endereco_form_cadastro_pacientes.Location = new Point(502, 140);
+            txt_endereco_form_cadastro_pacientes.Name = "txt_endereco_form_cadastro_pacientes";
+            txt_endereco_form_cadastro_pacientes.Size = new Size(125, 27);
+            txt_endereco_form_cadastro_pacientes.TabIndex = 24;
             // 
             // label4
             // 
@@ -159,12 +169,12 @@
             label4.TabIndex = 18;
             label4.Text = "Email:";
             // 
-            // textBox4
+            // txt_telefone_form_cadastro_pacientes
             // 
-            textBox4.Location = new Point(488, 95);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
-            textBox4.TabIndex = 23;
+            txt_telefone_form_cadastro_pacientes.Location = new Point(488, 95);
+            txt_telefone_form_cadastro_pacientes.Name = "txt_telefone_form_cadastro_pacientes";
+            txt_telefone_form_cadastro_pacientes.Size = new Size(125, 27);
+            txt_telefone_form_cadastro_pacientes.TabIndex = 23;
             // 
             // label5
             // 
@@ -175,19 +185,19 @@
             label5.TabIndex = 19;
             label5.Text = "Telefone:";
             // 
-            // textBox3
+            // txt_rg_form_cadastro_pacientes
             // 
-            textBox3.Location = new Point(193, 170);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 22;
+            txt_rg_form_cadastro_pacientes.Location = new Point(193, 170);
+            txt_rg_form_cadastro_pacientes.Name = "txt_rg_form_cadastro_pacientes";
+            txt_rg_form_cadastro_pacientes.Size = new Size(125, 27);
+            txt_rg_form_cadastro_pacientes.TabIndex = 22;
             // 
-            // textBox2
+            // txt_nome_form_cadastro_pacientes
             // 
-            textBox2.Location = new Point(215, 95);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 21;
+            txt_nome_form_cadastro_pacientes.Location = new Point(215, 95);
+            txt_nome_form_cadastro_pacientes.Name = "txt_nome_form_cadastro_pacientes";
+            txt_nome_form_cadastro_pacientes.Size = new Size(125, 27);
+            txt_nome_form_cadastro_pacientes.TabIndex = 21;
             // 
             // tabPage2
             // 
@@ -207,6 +217,32 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Cadastrar Consulta";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(177, 261);
+            button1.Name = "button1";
+            button1.Size = new Size(114, 42);
+            button1.TabIndex = 54;
+            button1.Text = "Cadastrar";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Enabled = false;
+            label11.Location = new Point(112, 210);
+            label11.Name = "label11";
+            label11.Size = new Size(56, 20);
+            label11.TabIndex = 52;
+            label11.Text = "Motivo";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(177, 207);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(125, 27);
+            textBox8.TabIndex = 53;
             // 
             // textBox1
             // 
@@ -258,42 +294,6 @@
             comboBox1.Size = new Size(151, 28);
             comboBox1.TabIndex = 0;
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Enabled = false;
-            label11.Location = new Point(112, 210);
-            label11.Name = "label11";
-            label11.Size = new Size(56, 20);
-            label11.TabIndex = 52;
-            label11.Text = "Motivo";
-            // 
-            // textBox8
-            // 
-            textBox8.Enabled = false;
-            textBox8.Location = new Point(177, 207);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(125, 27);
-            textBox8.TabIndex = 53;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(177, 261);
-            button1.Name = "button1";
-            button1.Size = new Size(114, 42);
-            button1.TabIndex = 54;
-            button1.Text = "Cadastrar";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(315, 299);
-            button2.Name = "button2";
-            button2.Size = new Size(114, 42);
-            button2.TabIndex = 55;
-            button2.Text = "Cadastrar";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // Cadastros
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -315,18 +315,18 @@
         private TabControl Cadastrar_paciente;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TextBox textBox6;
+        private TextBox txt_email_form_cadastro_pacientes;
         private Label label6;
         private Label label1;
         private Label label2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpNascimento_form_cadastro_paciente;
         private Label label3;
-        private TextBox textBox5;
+        private TextBox txt_endereco_form_cadastro_pacientes;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox txt_telefone_form_cadastro_pacientes;
         private Label label5;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox txt_rg_form_cadastro_pacientes;
+        private TextBox txt_nome_form_cadastro_pacientes;
         private Label label7;
         private ComboBox comboBox1;
         private DateTimePicker dateTimePicker2;
@@ -336,6 +336,6 @@
         private Button button1;
         private Label label11;
         private TextBox textBox8;
-        private Button button2;
+        private Button btn_cadastrar_form_cadastrar_paciente;
     }
 }
