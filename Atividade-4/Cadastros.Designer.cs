@@ -44,15 +44,15 @@
             txt_rg_form_cadastro_pacientes = new TextBox();
             txt_nome_form_cadastro_pacientes = new TextBox();
             tabPage2 = new TabPage();
-            button1 = new Button();
+            btn_cadastrar_form_cadastrar_agenda = new Button();
             label11 = new Label();
-            textBox8 = new TextBox();
-            textBox1 = new TextBox();
+            txt_motivo_form_cadastrar_consulta = new TextBox();
+            txt_horario_form_cadastrar_consulta = new TextBox();
             label9 = new Label();
-            dateTimePicker2 = new DateTimePicker();
+            dtp_dataDaConsulta_form_cadastrar_consulta = new DateTimePicker();
             label8 = new Label();
             label7 = new Label();
-            comboBox1 = new ComboBox();
+            cb_pacientes_form_cadastro_consulta = new ComboBox();
             Cadastrar_paciente.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -67,6 +67,7 @@
             Cadastrar_paciente.SelectedIndex = 0;
             Cadastrar_paciente.Size = new Size(776, 405);
             Cadastrar_paciente.TabIndex = 0;
+            Cadastrar_paciente.SelectedIndexChanged += Cadastrar_paciente_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -201,15 +202,15 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(btn_cadastrar_form_cadastrar_agenda);
             tabPage2.Controls.Add(label11);
-            tabPage2.Controls.Add(textBox8);
-            tabPage2.Controls.Add(textBox1);
+            tabPage2.Controls.Add(txt_motivo_form_cadastrar_consulta);
+            tabPage2.Controls.Add(txt_horario_form_cadastrar_consulta);
             tabPage2.Controls.Add(label9);
-            tabPage2.Controls.Add(dateTimePicker2);
+            tabPage2.Controls.Add(dtp_dataDaConsulta_form_cadastrar_consulta);
             tabPage2.Controls.Add(label8);
             tabPage2.Controls.Add(label7);
-            tabPage2.Controls.Add(comboBox1);
+            tabPage2.Controls.Add(cb_pacientes_form_cadastro_consulta);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -217,39 +218,40 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Cadastrar Consulta";
             tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Click += tabPage2_Click;
             // 
-            // button1
+            // btn_cadastrar_form_cadastrar_agenda
             // 
-            button1.Location = new Point(177, 261);
-            button1.Name = "button1";
-            button1.Size = new Size(114, 42);
-            button1.TabIndex = 54;
-            button1.Text = "Cadastrar";
-            button1.UseVisualStyleBackColor = true;
+            btn_cadastrar_form_cadastrar_agenda.Location = new Point(177, 261);
+            btn_cadastrar_form_cadastrar_agenda.Name = "btn_cadastrar_form_cadastrar_agenda";
+            btn_cadastrar_form_cadastrar_agenda.Size = new Size(114, 42);
+            btn_cadastrar_form_cadastrar_agenda.TabIndex = 54;
+            btn_cadastrar_form_cadastrar_agenda.Text = "Cadastrar";
+            btn_cadastrar_form_cadastrar_agenda.UseVisualStyleBackColor = true;
+            btn_cadastrar_form_cadastrar_agenda.Click += button1_Click;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Enabled = false;
             label11.Location = new Point(112, 210);
             label11.Name = "label11";
             label11.Size = new Size(56, 20);
             label11.TabIndex = 52;
             label11.Text = "Motivo";
             // 
-            // textBox8
+            // txt_motivo_form_cadastrar_consulta
             // 
-            textBox8.Location = new Point(177, 207);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(125, 27);
-            textBox8.TabIndex = 53;
+            txt_motivo_form_cadastrar_consulta.Location = new Point(177, 207);
+            txt_motivo_form_cadastrar_consulta.Name = "txt_motivo_form_cadastrar_consulta";
+            txt_motivo_form_cadastrar_consulta.Size = new Size(125, 27);
+            txt_motivo_form_cadastrar_consulta.TabIndex = 53;
             // 
-            // textBox1
+            // txt_horario_form_cadastrar_consulta
             // 
-            textBox1.Location = new Point(178, 133);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(139, 27);
-            textBox1.TabIndex = 35;
+            txt_horario_form_cadastrar_consulta.Location = new Point(178, 133);
+            txt_horario_form_cadastrar_consulta.Name = "txt_horario_form_cadastrar_consulta";
+            txt_horario_form_cadastrar_consulta.Size = new Size(139, 27);
+            txt_horario_form_cadastrar_consulta.TabIndex = 35;
             // 
             // label9
             // 
@@ -260,13 +262,13 @@
             label9.TabIndex = 33;
             label9.Text = "Horario";
             // 
-            // dateTimePicker2
+            // dtp_dataDaConsulta_form_cadastrar_consulta
             // 
-            dateTimePicker2.Location = new Point(245, 95);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(309, 27);
-            dateTimePicker2.TabIndex = 32;
-            dateTimePicker2.Value = new DateTime(2025, 5, 15, 15, 51, 23, 0);
+            dtp_dataDaConsulta_form_cadastrar_consulta.Location = new Point(245, 95);
+            dtp_dataDaConsulta_form_cadastrar_consulta.Name = "dtp_dataDaConsulta_form_cadastrar_consulta";
+            dtp_dataDaConsulta_form_cadastrar_consulta.Size = new Size(309, 27);
+            dtp_dataDaConsulta_form_cadastrar_consulta.TabIndex = 32;
+            dtp_dataDaConsulta_form_cadastrar_consulta.Value = new DateTime(2025, 5, 15, 15, 51, 23, 0);
             // 
             // label8
             // 
@@ -286,13 +288,13 @@
             label7.TabIndex = 1;
             label7.Text = "Pacientes ";
             // 
-            // comboBox1
+            // cb_pacientes_form_cadastro_consulta
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(193, 61);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 0;
+            cb_pacientes_form_cadastro_consulta.FormattingEnabled = true;
+            cb_pacientes_form_cadastro_consulta.Location = new Point(193, 61);
+            cb_pacientes_form_cadastro_consulta.Name = "cb_pacientes_form_cadastro_consulta";
+            cb_pacientes_form_cadastro_consulta.Size = new Size(151, 28);
+            cb_pacientes_form_cadastro_consulta.TabIndex = 0;
             // 
             // Cadastros
             // 
@@ -328,14 +330,14 @@
         private TextBox txt_rg_form_cadastro_pacientes;
         private TextBox txt_nome_form_cadastro_pacientes;
         private Label label7;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker2;
+        private ComboBox cb_pacientes_form_cadastro_consulta;
+        private DateTimePicker dtp_dataDaConsulta_form_cadastrar_consulta;
         private Label label8;
-        private TextBox textBox1;
+        private TextBox txt_horario_form_cadastrar_consulta;
         private Label label9;
-        private Button button1;
+        private Button btn_cadastrar_form_cadastrar_agenda;
         private Label label11;
-        private TextBox textBox8;
+        private TextBox txt_motivo_form_cadastrar_consulta;
         private Button btn_cadastrar_form_cadastrar_paciente;
     }
 }
