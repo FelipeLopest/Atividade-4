@@ -20,7 +20,14 @@ namespace Atividade_4
 
         private void agendamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Agendamentos");
+            panel1.Controls.Clear();
+         Agendas agendas = new Agendas();
+            agendas.Show();
+
+
+
+
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -64,14 +71,16 @@ namespace Atividade_4
             panel1.Controls.Add(cadastros);
 
 
-           
+
             cadastros.Show();
 
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
+
+       
     }
 }
