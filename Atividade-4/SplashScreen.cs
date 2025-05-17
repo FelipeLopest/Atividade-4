@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Atividade_4
 
         private void SplashScreen_Load(object sender, EventArgs e)
         {
-
+           
         }
         private int progresso = 0; // variável para controlar o progresso da barra
         private void timer1_Tick(object sender, EventArgs e)

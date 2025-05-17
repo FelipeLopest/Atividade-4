@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             label1 = new Label();
             txt_usuario_formLogin = new TextBox();
             label2 = new Label();
@@ -39,15 +40,17 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(344, 43);
+            label1.BackColor = SystemColors.ActiveCaption;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(478, 79);
             label1.Name = "label1";
-            label1.Size = new Size(46, 20);
+            label1.Size = new Size(92, 41);
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
             // txt_usuario_formLogin
             // 
-            txt_usuario_formLogin.Location = new Point(310, 111);
+            txt_usuario_formLogin.Location = new Point(463, 151);
             txt_usuario_formLogin.Name = "txt_usuario_formLogin";
             txt_usuario_formLogin.Size = new Size(147, 27);
             txt_usuario_formLogin.TabIndex = 2;
@@ -55,43 +58,51 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(248, 114);
+            label2.BackColor = SystemColors.ActiveCaption;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(362, 150);
             label2.Name = "label2";
-            label2.Size = new Size(62, 20);
+            label2.Size = new Size(83, 28);
             label2.TabIndex = 3;
             label2.Text = "Usuario:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(258, 158);
+            label3.BackColor = SystemColors.ActiveCaption;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(362, 195);
             label3.Name = "label3";
-            label3.Size = new Size(52, 20);
+            label3.Size = new Size(69, 28);
             label3.TabIndex = 4;
             label3.Text = "Senha:";
             // 
             // txt_Senha_formLogin
             // 
-            txt_Senha_formLogin.Location = new Point(310, 155);
+            txt_Senha_formLogin.Location = new Point(463, 195);
             txt_Senha_formLogin.Name = "txt_Senha_formLogin";
             txt_Senha_formLogin.Size = new Size(147, 27);
             txt_Senha_formLogin.TabIndex = 5;
             // 
             // btn_entrar_formLogin
             // 
-            btn_entrar_formLogin.Location = new Point(320, 198);
+            btn_entrar_formLogin.BackColor = SystemColors.ActiveCaption;
+            btn_entrar_formLogin.FlatStyle = FlatStyle.Flat;
+            btn_entrar_formLogin.Location = new Point(463, 255);
             btn_entrar_formLogin.Name = "btn_entrar_formLogin";
-            btn_entrar_formLogin.Size = new Size(121, 38);
+            btn_entrar_formLogin.Size = new Size(137, 48);
             btn_entrar_formLogin.TabIndex = 6;
             btn_entrar_formLogin.Text = "Entrar";
-            btn_entrar_formLogin.UseVisualStyleBackColor = true;
+            btn_entrar_formLogin.UseVisualStyleBackColor = false;
             btn_entrar_formLogin.Click += button1_Click;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1022, 518);
             Controls.Add(btn_entrar_formLogin);
             Controls.Add(txt_Senha_formLogin);
             Controls.Add(label3);

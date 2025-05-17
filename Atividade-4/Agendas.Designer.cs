@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox7 = new TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agendas));
             txt_horario_form_agendas = new TextBox();
-            label10 = new Label();
             label9 = new Label();
             dtp_dataConsulta_form_agendas = new DateTimePicker();
             label8 = new Label();
@@ -46,14 +45,6 @@
             btn_excluir_consulta = new Button();
             SuspendLayout();
             // 
-            // textBox7
-            // 
-            textBox7.Enabled = false;
-            textBox7.Location = new Point(311, 335);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(139, 27);
-            textBox7.TabIndex = 44;
-            // 
             // txt_horario_form_agendas
             // 
             txt_horario_form_agendas.Enabled = false;
@@ -61,16 +52,6 @@
             txt_horario_form_agendas.Name = "txt_horario_form_agendas";
             txt_horario_form_agendas.Size = new Size(139, 27);
             txt_horario_form_agendas.TabIndex = 43;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Enabled = false;
-            label10.Location = new Point(233, 335);
-            label10.Name = "label10";
-            label10.Size = new Size(59, 20);
-            label10.TabIndex = 42;
-            label10.Text = "Medico";
             // 
             // label9
             // 
@@ -197,7 +178,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1200, 374);
             Controls.Add(btn_excluir_consulta);
             Controls.Add(label3);
             Controls.Add(txt_motivo_form_agendas);
@@ -206,9 +189,7 @@
             Controls.Add(label2);
             Controls.Add(txt_id_form_agendas);
             Controls.Add(btn_buscar_form_agenda);
-            Controls.Add(textBox7);
             Controls.Add(txt_horario_form_agendas);
-            Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(dtp_dataConsulta_form_agendas);
             Controls.Add(label8);
@@ -222,10 +203,7 @@
         }
 
         #endregion
-
-        private TextBox textBox7;
         private TextBox txt_horario_form_agendas;
-        private Label label10;
         private Label label9;
         private DateTimePicker dtp_dataConsulta_form_agendas;
         private Label label8;

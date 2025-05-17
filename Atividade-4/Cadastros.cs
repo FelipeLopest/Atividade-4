@@ -145,16 +145,21 @@ namespace Atividade_4
                     MessageBox.Show("Consulta cadastrada com sucesso!");
 
                     // Limpa os campos
-                   cb_pacientes_form_cadastro_consulta.SelectedIndex = -1;
+                    cb_pacientes_form_cadastro_consulta.SelectedIndex = -1;
                     dtp_dataDaConsulta_form_cadastrar_consulta.Value = DateTime.Today;
                     txt_horario_form_cadastrar_consulta.Clear();
-                    txt_motivo_form_cadastrar_consulta.Clear(); 
+                    txt_motivo_form_cadastrar_consulta.Clear();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao cadastrar consulta: " + ex.Message);
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

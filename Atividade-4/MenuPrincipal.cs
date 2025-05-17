@@ -21,8 +21,20 @@ namespace Atividade_4
         private void agendamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-         Agendas agendas = new Agendas();
+
+            Agendas agendas = new Agendas();
+
+            agendas.TopLevel = false; // MUITO importante: torna o form "filho"
+            agendas.FormBorderStyle = FormBorderStyle.None; // remove bordas e título
+            agendas.Dock = DockStyle.Fill; // ocupa todo o espaço do panel
+            panel1.Controls.Add(agendas);
+
+
+
             agendas.Show();
+
+
+
 
 
 
@@ -47,8 +59,7 @@ namespace Atividade_4
 
         private void verificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pacientes pacientes = new Pacientes();
-            pacientes.Show();
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -81,6 +92,22 @@ namespace Atividade_4
 
         }
 
-       
+        private void pacientesCadastradosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            Pacientes pacientes = new Pacientes();
+
+
+            pacientes.TopLevel = false; // MUITO importante: torna o form "filho"
+            pacientes.FormBorderStyle = FormBorderStyle.None; // remove bordas e título
+            pacientes.Dock = DockStyle.Fill; // ocupa todo o espaço do panel
+            panel1.Controls.Add(pacientes);
+            pacientes.Show();
+        }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

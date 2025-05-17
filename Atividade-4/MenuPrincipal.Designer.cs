@@ -49,11 +49,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = SystemColors.ActiveCaption;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { consultasToolStripMenuItem, cadastrarToolStripMenuItem, verificarToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(983, 28);
+            menuStrip1.Size = new Size(1249, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -63,6 +64,7 @@
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             consultasToolStripMenuItem.Size = new Size(82, 24);
             consultasToolStripMenuItem.Text = "Consutas";
+            consultasToolStripMenuItem.Click += consultasToolStripMenuItem_Click;
             // 
             // agendamentosToolStripMenuItem
             // 
@@ -91,14 +93,16 @@
             pacientesCadastradosToolStripMenuItem.Name = "pacientesCadastradosToolStripMenuItem";
             pacientesCadastradosToolStripMenuItem.Size = new Size(239, 26);
             pacientesCadastradosToolStripMenuItem.Text = "Pacientes Cadastrados";
+            pacientesCadastradosToolStripMenuItem.Click += pacientesCadastradosToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
+            toolStrip1.BackColor = SystemColors.ActiveCaption;
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2 });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(983, 27);
+            toolStrip1.Size = new Size(1249, 27);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -124,11 +128,12 @@
             // 
             // statusStrip1
             // 
+            statusStrip1.BackColor = SystemColors.ActiveCaption;
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus });
-            statusStrip1.Location = new Point(0, 544);
+            statusStrip1.Location = new Point(0, 590);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(983, 22);
+            statusStrip1.Size = new Size(1249, 22);
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -152,9 +157,10 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.GradientActiveCaption;
             panel1.Location = new Point(0, 58);
             panel1.Name = "panel1";
-            panel1.Size = new Size(971, 483);
+            panel1.Size = new Size(1249, 542);
             panel1.TabIndex = 3;
             panel1.Paint += panel1_Paint;
             // 
@@ -162,7 +168,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(983, 566);
+            BackColor = SystemColors.ActiveBorder;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1249, 612);
             Controls.Add(panel1);
             Controls.Add(statusStrip1);
             Controls.Add(toolStrip1);
