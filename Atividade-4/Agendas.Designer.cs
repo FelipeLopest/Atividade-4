@@ -43,6 +43,7 @@
             txt_nome_form_agendas = new TextBox();
             label3 = new Label();
             txt_motivo_form_agendas = new TextBox();
+            btn_excluir_consulta = new Button();
             SuspendLayout();
             // 
             // textBox7
@@ -182,11 +183,22 @@
             txt_motivo_form_agendas.Size = new Size(125, 27);
             txt_motivo_form_agendas.TabIndex = 51;
             // 
+            // btn_excluir_consulta
+            // 
+            btn_excluir_consulta.Location = new Point(367, 30);
+            btn_excluir_consulta.Name = "btn_excluir_consulta";
+            btn_excluir_consulta.Size = new Size(94, 29);
+            btn_excluir_consulta.TabIndex = 53;
+            btn_excluir_consulta.Text = "Excluir";
+            btn_excluir_consulta.UseVisualStyleBackColor = true;
+            btn_excluir_consulta.Click += btn_excluir_consulta_Click;
+            // 
             // Agendas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_excluir_consulta);
             Controls.Add(label3);
             Controls.Add(txt_motivo_form_agendas);
             Controls.Add(label1);
@@ -226,5 +238,6 @@
         private TextBox txt_nome_form_agendas;
         private Label label3;
         private TextBox txt_motivo_form_agendas;
+        private Button btn_excluir_consulta;
     }
 }
