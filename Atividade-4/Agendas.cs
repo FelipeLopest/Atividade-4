@@ -20,21 +20,24 @@ namespace Atividade_4
 
         private void Agendas_Load(object sender, EventArgs e)
         {
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex = new MySqlConnection(conexao);
+           
                 try
                 {
                     conex.Open();
                     string sql = "SELECT id, nome FROM pacientes ORDER BY nome";
-                    MySqlCommand cmd = new MySqlCommand(sql, conex);
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.CommandText = sql;
+                     cmd.Connection = conex;
                     MySqlDataReader dr = cmd.ExecuteReader();
 
                     Dictionary<int, string> pacientes = new Dictionary<int, string>();
 
-                    while (dr.Read())
-                    {
-                        int id = dr.GetInt32("id");
-                        string nome = dr.GetString("nome");
+                while (dr.Read())
+                {
+                        int id = Convert.ToInt32(dr["id"]);
+                        string nome = dr["nome"].ToString();
                         pacientes.Add(id, nome);
                     }
 
@@ -47,8 +50,14 @@ namespace Atividade_4
                 {
                     MessageBox.Show("Erro ao carregar pacientes: " + ex.Message);
                 }
+            finally
+            {
+                conex.Close();
             }
-        }
+
+            
+            }
+        
 
         private void btn_buscar_form_agenda_Click(object sender, EventArgs e)
         {
@@ -57,23 +66,25 @@ namespace Atividade_4
 
             int pacienteId = ((KeyValuePair<int, string>)cb_pacientes_form_agendas.SelectedItem).Key;
 
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
-                try
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex = new MySqlConnection(conexao);
+            try
                 {
                     conex.Open();
 
-                    string sql = @"SELECT p.id, p.nome, c.motivo, c.horario_consulta, c.data_consulta 
-                           FROM pacientes p
-                           JOIN cadastroconsulta c ON p.id = c.paciente_id
-                           WHERE p.id = @id
-                           ORDER BY c.data_consulta DESC
-                           LIMIT 1";
+                    string sql = @"SELECT pacientes.id, pacientes.nome, cadastroconsulta.motivo, cadastroconsulta.horario_consulta, cadastroconsulta.data_consulta
+                                   FROM pacientes
+                                 JOIN cadastroconsulta ON pacientes.id = cadastroconsulta.paciente_id
+                                 WHERE pacientes.id = ' "+ pacienteId + @"'
+                                  ORDER BY cadastroconsulta.data_consulta DESC
+                                 LIMIT 1;";
 
-                    MySqlCommand cmd = new MySqlCommand(sql, conex);
-                    cmd.Parameters.AddWithValue("@id", pacienteId);
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.CommandText = sql;
+                    cmd.Connection = conex;
 
-                    MySqlDataReader dr = cmd.ExecuteReader();
+
+                MySqlDataReader dr = cmd.ExecuteReader();
 
                     if (dr.Read())
                     {
@@ -93,7 +104,11 @@ namespace Atividade_4
                 {
                     MessageBox.Show("Erro ao buscar consulta: " + ex.Message);
                 }
+            finally
+            {
+                conex.Close();
             }
+            
         }
 
         private void cb_pacientes_form_agendas_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,9 +127,7 @@ namespace Atividade_4
             var pacienteSelecionado = (KeyValuePair<int, string>)cb_pacientes_form_agendas.SelectedItem;
             int pacienteId = pacienteSelecionado.Key;
 
-            // Se você tem um campo txtIdConsulta ou outro para identificar a consulta, use ele:
-            // Exemplo: int consultaId = Convert.ToInt32(txtIdConsulta.Text);
-            // Caso contrário, vou sugerir excluir a consulta mais recente.
+         
 
             DialogResult confirm = MessageBox.Show(
                 $"Tem certeza que deseja excluir a consulta do paciente '{pacienteSelecionado.Value}'?",
@@ -125,33 +138,35 @@ namespace Atividade_4
             if (confirm != DialogResult.Yes)
                 return;
 
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
-                try
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex = new MySqlConnection(conexao);
+
+            try
                 {
                     conex.Open();
 
-                    // Excluir a consulta mais recente desse paciente
+                  
                     string sqlExcluirConsulta = @"
                 DELETE FROM cadastroconsulta
                 WHERE id = (
                     SELECT id FROM (
                         SELECT id FROM cadastroconsulta
-                        WHERE paciente_id = @pacienteId 
+                        WHERE paciente_id = '" + pacienteId + @"'
                         ORDER BY data_consulta DESC, horario_consulta DESC 
                         LIMIT 1
                     ) AS sub
                 )";
 
-                    MySqlCommand cmd = new MySqlCommand(sqlExcluirConsulta, conex);
-                    cmd.Parameters.AddWithValue("@pacienteId", pacienteId);
-
+                    MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = sqlExcluirConsulta;
+                cmd.Connection = conex;
+             
                     int resultado = cmd.ExecuteNonQuery();
 
                     if (resultado > 0)
                     {
                         MessageBox.Show("Consulta excluída com sucesso!");
-                        // Aqui você pode chamar o método para atualizar os campos da consulta e/ou recarregar o ComboBox
+                      
                     }
                     else
                     {
@@ -164,26 +179,33 @@ namespace Atividade_4
                 {
                     MessageBox.Show("Erro ao excluir consulta: " + ex.Message);
                 }
+            finally
+            {
+                conex.Close();
             }
+            
         }
 
         private void CarregarPacientesComboBox()
         {
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
-                try
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex = new MySqlConnection(conexao);
+            try
                 {
                     conex.Open();
                     string sql = "SELECT id, nome FROM pacientes ORDER BY nome";
-                    MySqlCommand cmd = new MySqlCommand(sql, conex);
-                    MySqlDataReader dr = cmd.ExecuteReader();
+                    MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = conex;
+
+                MySqlDataReader dr = cmd.ExecuteReader();
 
                     Dictionary<int, string> pacientes = new Dictionary<int, string>();
 
                     while (dr.Read())
                     {
-                        int id = dr.GetInt32("id");
-                        string nome = dr.GetString("nome");
+                        int id = Convert.ToInt32(dr["id"]);
+                        string nome = dr["nome"].ToString();
                         pacientes.Add(id, nome);
                     }
 
@@ -198,14 +220,18 @@ namespace Atividade_4
                     txt_horario_form_agendas.Clear();
                     dtp_dataConsulta_form_agendas.Value = DateTime.Today;
 
-                    // Opcional: deseleciona o ComboBox
+                    
                     cb_pacientes_form_agendas.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao carregar pacientes: " + ex.Message);
                 }
+            finally
+            {
+                conex.Close();
             }
+            
         }
     }
 }

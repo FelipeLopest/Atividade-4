@@ -24,9 +24,9 @@ namespace Atividade_4
 
             Agendas agendas = new Agendas();
 
-            agendas.TopLevel = false; // MUITO importante: torna o form "filho"
-            agendas.FormBorderStyle = FormBorderStyle.None; // remove bordas e título
-            agendas.Dock = DockStyle.Fill; // ocupa todo o espaço do panel
+            agendas.TopLevel = false; 
+            agendas.FormBorderStyle = FormBorderStyle.None;
+            agendas.Dock = DockStyle.Fill; 
             panel1.Controls.Add(agendas);
 
 
@@ -76,7 +76,7 @@ namespace Atividade_4
             panel1.Controls.Clear();
             Cadastros cadastros = new Cadastros();
 
-            cadastros.TopLevel = false; // MUITO importante: torna o form "filho"
+            cadastros.TopLevel = false; 
             cadastros.FormBorderStyle = FormBorderStyle.None; // remove bordas e título
             cadastros.Dock = DockStyle.Fill; // ocupa todo o espaço do panel
             panel1.Controls.Add(cadastros);
@@ -98,11 +98,12 @@ namespace Atividade_4
             Pacientes pacientes = new Pacientes();
 
 
-            pacientes.TopLevel = false; // MUITO importante: torna o form "filho"
-            pacientes.FormBorderStyle = FormBorderStyle.None; // remove bordas e título
-            pacientes.Dock = DockStyle.Fill; // ocupa todo o espaço do panel
+            pacientes.TopLevel = false;
+            pacientes.FormBorderStyle = FormBorderStyle.None; 
+            pacientes.Dock = DockStyle.Fill; 
             panel1.Controls.Add(pacientes);
             pacientes.Show();
+            
         }
 
         private void consultasToolStripMenuItem_Click(object sender, EventArgs e)

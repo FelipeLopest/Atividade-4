@@ -22,19 +22,19 @@ namespace Atividade_4
         {
            
         }
-        private int progresso = 0; // variável para controlar o progresso da barra
+        private int progresso = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progresso += 10; // cada tick soma 2% (100% em 50 ticks × 50ms = 2,5s)
-            progressBar1.Value = progresso; // atualiza a barra de progresso
+            progresso += 10;
+            progressBar1.Value = progresso;
 
-            if (progresso >= 100 && timer1.Interval ==250)
+            if (progresso >= 100) 
             {
                 timer1.Stop();
+                LoginForm login = new LoginForm(); 
                 this.Hide();
 
-                LoginForm login = new LoginForm();
-                login.Show();
+                login.Show(); 
             }
         }
     }

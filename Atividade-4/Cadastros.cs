@@ -25,24 +25,27 @@ namespace Atividade_4
 
         private void btn_cadastrar_form_cadastrar_paciente_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
-                try
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex = new MySqlConnection(conexao);
+            try
                 {
                     conex.Open();
 
-                    string sql = @"INSERT INTO pacientes(nome,rg,telefone,endereco,email,nascimento) VALUES (@nome, @rg,@telefone,@endereco,@email,@nascimento)";
+                string sql = "INSERT INTO pacientes(nome, rg, telefone, endereco, email, nascimento) VALUES ('"
+                + txt_nome_form_cadastro_pacientes.Text + "', '"
+                + txt_rg_form_cadastro_pacientes.Text + "', '"
+                + txt_telefone_form_cadastro_pacientes.Text + "', '"
+                + txt_endereco_form_cadastro_pacientes.Text + "', '"
+                + txt_email_form_cadastro_pacientes.Text + "', '"
+                 + dtpNascimento_form_cadastro_paciente.Value.ToString("yyyy-MM-dd") + "')";
 
-                    MySqlCommand cmd = new MySqlCommand(sql, conex);
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = conex;
 
-                    cmd.Parameters.AddWithValue("@nome", txt_nome_form_cadastro_pacientes.Text);
-                    cmd.Parameters.AddWithValue("@rg", txt_rg_form_cadastro_pacientes.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txt_telefone_form_cadastro_pacientes.Text);
-                    cmd.Parameters.AddWithValue("@endereco", txt_endereco_form_cadastro_pacientes.Text);
-                    cmd.Parameters.AddWithValue("@email", txt_email_form_cadastro_pacientes.Text);
-                    cmd.Parameters.AddWithValue("@nascimento", dtpNascimento_form_cadastro_paciente.Value.ToString("yyyy-MM-dd"));
 
-                    cmd.ExecuteNonQuery();
+
+                cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Paciente cadastrado com sucesso!");
 
@@ -57,10 +60,14 @@ namespace Atividade_4
                 {
                     MessageBox.Show("Erro: " + ex.Message);
                 }
-
-
-
+            finally
+            {
+                conex.Close();
             }
+
+
+
+            
 
         }
 
@@ -79,14 +86,16 @@ namespace Atividade_4
 
         private void CarregarPacientes()
         {
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
-                try
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex = new MySqlConnection(conexao);
+            try
                 {
                     conex.Open();
                     string sql = "SELECT id, nome FROM pacientes ORDER BY nome";
-                    MySqlCommand cmd = new MySqlCommand(sql, conex);
-                    MySqlDataReader dr = cmd.ExecuteReader();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.CommandText = sql;
+                    cmd.Connection = conex;
+                     MySqlDataReader dr = cmd.ExecuteReader();
 
                     cb_pacientes_form_cadastro_consulta.DataSource = null;
 
@@ -94,8 +103,8 @@ namespace Atividade_4
 
                     while (dr.Read())
                     {
-                        int id = dr.GetInt32("id");
-                        string nome = dr.GetString("nome");
+                        int id = Convert.ToInt32(dr["id"]);
+                        string nome = dr["nome"].ToString();
                         pacientes.Add(id, nome);
                     }
 
@@ -109,7 +118,12 @@ namespace Atividade_4
                 {
                     MessageBox.Show("Erro: " + ex.Message);
                 }
+            finally
+            {
+                conex.Close();
             }
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,22 +139,24 @@ namespace Atividade_4
             string horario = txt_horario_form_cadastrar_consulta.Text.Trim();
             string motivo = txt_motivo_form_cadastrar_consulta.Text.Trim();
 
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
-                try
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex = new MySqlConnection(conexao);
+            try
                 {
                     conex.Open();
 
-                    string sql = @"INSERT INTO cadastroconsulta(paciente_id, data_consulta, horario_consulta, motivo)
-                           VALUES (@paciente_id, @data, @horario, @motivo)";
-                    MySqlCommand cmd = new MySqlCommand(sql, conex);
+                string sql = "INSERT INTO cadastroconsulta(paciente_id, data_consulta, horario_consulta, motivo) VALUES ("
+                + pacienteId + ", '"
+                + dataConsulta + "', '"
+                + horario + "', '"
+                 + motivo + "')";
 
-                    cmd.Parameters.AddWithValue("@paciente_id", pacienteId);
-                    cmd.Parameters.AddWithValue("@data", dataConsulta);
-                    cmd.Parameters.AddWithValue("@horario", horario);
-                    cmd.Parameters.AddWithValue("@motivo", motivo);
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = conex;
 
-                    cmd.ExecuteNonQuery();
+
+                cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Consulta cadastrada com sucesso!");
 
@@ -154,7 +170,11 @@ namespace Atividade_4
                 {
                     MessageBox.Show("Erro ao cadastrar consulta: " + ex.Message);
                 }
+            finally
+            {
+                conex.Close();
             }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)

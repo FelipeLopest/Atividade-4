@@ -21,18 +21,19 @@ namespace Atividade_4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conex = Conexao.ObterConexao())
-            {
+            string conexao = "Server=localhost;Database=clinica;Uid=root;Pwd=";
+            MySqlConnection conex  = new MySqlConnection(conexao);
+           
+            
                 try
                 {
                     conex.Open();
-                    string sql = "SELECT COUNT(*) FROM usuario WHERE usuario = @usuario AND senha = @senha";
+                    string sql = "SELECT COUNT(*) FROM usuario WHERE usuario = '"+ txt_usuario_formLogin.Text +"' AND senha = '" + txt_Senha_formLogin.Text + "'" ;
 
                     MySqlCommand cmd = new MySqlCommand(sql, conex);
-                    cmd.Parameters.AddWithValue("@usuario", txt_usuario_formLogin.Text);
-                    cmd.Parameters.AddWithValue("@senha", txt_Senha_formLogin.Text);
+                   
 
-                    int resultado = Convert.ToInt32(cmd.ExecuteScalar());
+                    int resultado = Convert.ToInt32(cmd.ExecuteScalar()); // Executa o comando SQL e retorna o número de linhas afetadas
 
                     if (resultado > 0)
                     {
@@ -45,13 +46,19 @@ namespace Atividade_4
                     {
                         MessageBox.Show("Usuário ou senha inválidos.");
                     }
+
                 }
+           
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro: " + ex.Message);
                 }
+            finally
+            {
+                conex.Close();
             }
         }
+        
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
